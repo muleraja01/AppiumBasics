@@ -1,0 +1,6 @@
+package App;
+
+public class Snippet {
+	new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView\"));
+}
+
