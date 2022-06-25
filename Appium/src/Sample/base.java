@@ -48,4 +48,18 @@ public class base {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
 	}
+	
+
+	public static AndroidDriver<AndroidElement> generalStoreCapabilities() throws MalformedURLException {
+		File appDir = new File("src/App");
+		File app = new File(appDir, "General-Store.apk");
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Raja");
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");// new step
+		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "14");
+		cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+		AndroidDriver<AndroidElement> driver=new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return driver;
+	}
 }
